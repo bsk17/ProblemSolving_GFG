@@ -1,0 +1,53 @@
+/*
+Given a string, str consisting of lowercase English alphabets, the task is to find the number of unique characters present in the string.
+
+Examples:
+
+Input: str = “geeksforgeeks”
+Output: 7
+Explanation: The given string “geeksforgeeks” contains 7 unique characters {‘g’, ‘e’, ‘k’, ‘s’, ‘f’, ‘o’, ‘r’}.
+
+Input: str = “madam”
+Output: 3
+*/
+
+/*
+Approach: The given problem can be solved using the set data structure. The idea is to initialize an unordered set that stores all the distinct characters of the given string. The size of the set after the string is traversed is the required answer.
+*/
+
+
+using System;
+using System.Collections.Generic;
+
+class GFG
+{
+
+  // Program to count the number of
+  // unique characters in a string
+  static int cntDistinct(string str)
+  {
+  	
+  	// Set to store unique characters
+  	// in the given string
+  	HashSet<char> s = new HashSet<char>();
+  
+  	// Loop to traverse the string
+  	for(int i = 0; i < str.Length; i++) 
+  	{
+  		
+  		// Insert current character
+  		// into the set
+  		s.Add(str[i]);
+  	}
+  
+  	// Return Answer
+  	return s.Count;
+  }
+  
+  // Driver Code
+  public static void Main()
+  {
+  	string str = "geeksforgeeks";
+  	Console.Write(cntDistinct(str));
+  }
+}
