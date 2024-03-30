@@ -1,0 +1,52 @@
+/*
+Given two N x M matrices. Find a N x M matrix as the sum of given matrices each value at the sum of values of corresponding elements of the given two matrices. 
+*/
+
+/*
+Iterate over every cell of matrix (i, j), add the corresponding values of the two matrices and store in a single matrix i.e. the resultant matrix.
+*/
+
+// C# program for addition 
+// of two matrices 
+using System; 
+
+class GFG { 
+	static int N = 4; 
+
+	// This function adds A[][] and B[][], and stores 
+	// the result in C[][] 
+	static void add(int[, ] A, int[, ] B, int[, ] C) 
+	{ 
+		int i, j; 
+		for (i = 0; i < N; i++) 
+			for (j = 0; j < N; j++) 
+				C[i, j] = A[i, j] + B[i, j]; 
+	} 
+
+	// Driver code 
+	public static void Main() 
+	{ 
+		int[, ] A = { { 1, 1, 1, 1 }, 
+					{ 2, 2, 2, 2 }, 
+					{ 3, 3, 3, 3 }, 
+					{ 4, 4, 4, 4 } }; 
+
+		int[, ] B = { { 1, 1, 1, 1 }, 
+					{ 2, 2, 2, 2 }, 
+					{ 3, 3, 3, 3 }, 
+					{ 4, 4, 4, 4 } }; 
+
+		// To store result 
+		int[, ] C = new int[N, N]; 
+		int i, j; 
+		add(A, B, C); 
+
+		Console.WriteLine("Result matrix is "); 
+		for (i = 0; i < N; i++) { 
+			for (j = 0; j < N; j++) 
+				Console.Write(C[i, j] + " "); 
+			Console.WriteLine(); 
+		} 
+	} 
+} 
+
