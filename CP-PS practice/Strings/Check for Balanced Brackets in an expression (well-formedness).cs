@@ -63,43 +63,36 @@ using System.Collections.Generic;
 
 public class Program{
 // Function to check if a given string of parentheses is balanced or not
-public static int check(string str){
-	Stack<char> s = new Stack<char>();
-	for (int i = 0; i < str.Length; i++){
-		char c = str[i];
-		if (c == '('){
-			s.Push('(');
-		}
-		else if (c == ')'){
-			if (s.Count == 0){
-				return 0;
-			}
-			else{
-				char p = s.Peek();
-				if (p == '('){
-					s.Pop();
-				}
-				else{
-					return 0;
-				}
-			}
-		}
-	}
-	if (s.Count == 0){
-		return 1;
-	}
-	else{
-		return 0;
-	}
-}
-
-public static void Main(string[] args){
-	string str = "()(())()";
-	if (check(str) == 0){
-	Console.WriteLine("Invalid");
-	}
-	else{
-	Console.WriteLine("Valid");
-	}
-}
+public static bool check(string str){
+        Stack<char> stack = new Stack<char>();
+        for(int i=0; i<str.Length; i++){
+            char ch = str[i];
+            
+            if(ch == '(' || ch == '{' || ch == '['){
+                stack.Push(ch);
+            }
+            if(ch == ')' || ch == '}' || ch == ']'){
+                if(stack.Count == 0){
+                    return false;
+                }
+                
+                char top = stack.Pop();
+                
+                if((top == '(' && ch != ')') || (top == '{' && ch != '}') ||(top == '[' && ch != ']')){
+                    return false;
+                }
+            }
+        }
+        return stack.Count == 0;
+    }
+    public static void Main(string[] args)
+    {
+        string str = "()(())()[{}]";
+    	if (check(str) == false){
+    	    Console.WriteLine("Invalid");
+    	}
+    	else{
+    	    Console.WriteLine("Valid");
+    	}
+    }
 }
