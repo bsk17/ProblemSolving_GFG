@@ -51,7 +51,7 @@ using System.Collections.Generic;
 public class Program { 
 public static int findMin(List<int> arr, int low, int high) { 
 	// If the array is not rotated 
-	if (arr[low] > arr[high]) { 
+	if (arr[low] <= arr[high]) { 
 	return arr[low]; 
 	} 
 
